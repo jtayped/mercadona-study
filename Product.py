@@ -6,11 +6,11 @@ class Product(MercadonaProduct):
     def __init__(
         self,
         id: str | dict,
-        initial_warehouse: str,
+        warehouses: list[str],
         language: Literal["es"] | Literal["en"] = "es",
     ):
-        self.warehouses = [initial_warehouse]
-        super().__init__(id, initial_warehouse, language)
+        self.warehouses = warehouses
+        super().__init__(id, warehouses[0], language)
 
     def add_warehouse(self, warehouse: str):
         if warehouse in self.warehouses:
